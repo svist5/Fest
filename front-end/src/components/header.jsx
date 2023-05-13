@@ -91,8 +91,8 @@ const Header=({color})=>{
                                                <div className="buy_tkt">
                                                    <div className="book_btn  d-lg-block"> 
                                          
-                                     <Button style={{bottom:"100px"}} display={{  md: mob }} ref={btnRef} colorScheme='teal' onClick={onOpen}> 
-                                        Open
+                                     <Button style={{bottom:"100px",fontSize:"200%"}} display={{  md: mob }} ref={btnRef} colorScheme="blackAlpha" onClick={onOpen}> 
+                                     ≡
                                     </Button>
                                     <Drawer
                                         isOpen={isOpen}
