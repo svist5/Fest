@@ -14,10 +14,18 @@ const Authenticate=require("./middleware/auth")
 
 connectDB();
 app.use(cookieParser());
-app.use(cors({ 
-    origin: 'https://64613c140a4148449cb99dcc--statuesque-squirrel-9c1a70.netlify.app/', // Replace with your frontend domain
-    credentials: true // Enable cookies and other credentials in CORS requests
-  }));
+// app.use(cors({ 
+//     origin: 'https://64613c140a4148449cb99dcc--statuesque-squirrel-9c1a70.netlify.app/', // Replace with your frontend domain
+//     credentials: true // Enable cookies and other credentials in CORS requests
+//   }));
+app.use((req, res, next) => {
+    res.setHeader("Access-Control-Allow-Origin", "https://64613c140a4148449cb99dcc--statuesque-squirrel-9c1a70.netlify.app/");
+    res.header(
+      "Access-Control-Allow-Headers",
+      "Origin, X-Requested-With, Content-Type, Accept"
+    );
+    next();
+  });
 app.use(express.json());
 app.use("/api/user",userRoutes)
 
